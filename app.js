@@ -87,6 +87,7 @@ const mailchimp = require("@mailchimp/mailchimp_marketing");
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+require('dotenv').config();
 //Using bod-parser
 app.use(bodyParser.urlencoded({extended:true}));
 //The public folder which holds the CSS
@@ -101,7 +102,7 @@ app.get("/", function (req, res) {
 //Setting up MailChimp
 mailchimp.setConfig({
 //*****************************ENTER YOUR API KEY HERE******************************
- apiKey: "1daae84861131951d14f84e0e2ffedcf-us21",
+apiKey :process.env.API_KEY,
 //*****************************ENTER YOUR API KEY PREFIX HERE i.e.THE SERVER******************************
  server: "us21"
 });
